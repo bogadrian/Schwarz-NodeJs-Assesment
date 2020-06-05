@@ -34,7 +34,7 @@ app.use(xss());
 app.use(compression());
 
 //end-points
-app.use('/', routers);
+app.use('/api/v1', routers);
 
 // export the app in order to make it availble in routes files
 module.exports = app;
