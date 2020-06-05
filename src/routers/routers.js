@@ -6,7 +6,7 @@ const router = express.Router();
 
 // import the handlers
 const read = require('../controllers/read-file');
-const company = require('../controllers/get-company');
+const company = require('../controllers/get');
 
 // read file router
 router.route('/read-file').get(read.readFile);
