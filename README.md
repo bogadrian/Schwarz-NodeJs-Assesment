@@ -1,4 +1,4 @@
-An Assesment app for an ipotetic Schwarz company.
+An Assesment app for an hypothetical Schwarz company.
 
 #Imagine you are a company that wants to ship their goods to Schwarz.
 
