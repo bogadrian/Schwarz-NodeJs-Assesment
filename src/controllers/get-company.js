@@ -1,10 +1,15 @@
+//END-POINTS handlers
+
 // get data from MongoDb handlers
 const Good = require('../goodsSchema');
 
-// get all orders by company name
+// get all orders by company name end-point
 exports.getCompany = async (req, res) => {
   try {
-    const response = await Good.find(req.query);
+    // check if the company name is made from more than 1 word (has been passed joined by a virgule in url)
+    const objCompany = req.query.companyName.split(',').join(' ');
+
+    const response = await Good.find({ companyName: objCompany });
     if (!response) {
       throw new Error('No company with that name was found!');
     }
@@ -17,9 +22,10 @@ exports.getCompany = async (req, res) => {
   }
 };
 
-// get all orders by delivery address
+// get all orders by delivery address end-point
 exports.getOrdersByAddress = async (req, res) => {
   try {
+    // check if the delivery address is made from more than 1 word (has been passed joined by a virgule in url)
     const objAddress = req.query.customerAddress.split(',').join(' ');
 
     const response = await Good.find({ customerAddress: objAddress });
@@ -36,7 +42,7 @@ exports.getOrdersByAddress = async (req, res) => {
   }
 };
 
-// get an order by ordeId and delete it
+// get an order by ordeId and delete it end-point
 exports.deleteOrder = async (req, res) => {
   try {
     const response = await Good.findOneAndDelete(req.query);
@@ -52,10 +58,10 @@ exports.deleteOrder = async (req, res) => {
     console.log(err);
   }
 };
-// display how often an item has been orderd in descending order
+// display how often an item has been orderd in descending order end-point
 exports.sortByOrder = async (req, res) => {
   try {
-    //using MongoDb aggregation pipeline to group the items by their name, sum the number of times their were sold (-the number of lines they appear in db-file.txt) and then sort them in descending order
+    //using MongoDb aggregation pipeline to group the items by their name, sum the number of times their were sold (the number of lines in which they appear in db-file.txt) and then sort them in descending order
     const ordersFiltred = await Good.aggregate([
       {
         $group: {

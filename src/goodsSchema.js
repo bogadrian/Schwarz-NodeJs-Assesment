@@ -20,5 +20,11 @@ const goodsSchema = new mongoose.Schema({
   }
 });
 
+// make sure to creat indexes for orderId, in order to facilitate MongoDb queries - use this only if db-file.txt will be huge
+goodsSchema.index({ orderId: 1 }, { unique: true });
+
+// make sure to creat indexes for orderItem also, in order to facilitate MongoDb queries - use this only if db-file.txt will be huge / not unique of course
+goodsSchema.index({ orderdItem: 1 });
+
 const Good = mongoose.model('Good', goodsSchema);
 module.exports = Good;

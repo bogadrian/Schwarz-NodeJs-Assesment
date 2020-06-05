@@ -4,10 +4,11 @@ const express = require('express');
 
 const router = express.Router();
 
-const read = require('../router/read-file');
-const company = require('../router/get-company');
+// import the handlers
+const read = require('../controllers/read-file');
+const company = require('../controllers/get-company');
 
-// reaf - file route
+// read file router
 router.route('/read-file').get(read.readFile);
 
 // find the entries for a specific company router

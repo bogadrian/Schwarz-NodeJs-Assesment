@@ -1,11 +1,12 @@
-// Read the file containg the data, write the data to database
+// Read the file containg the data, write the data to local MongoDb
 
 // import n-readlines package to read the file line by line
 const lineByLine = require('n-readlines');
-// import path node module to grant access to theextern folder
+
+// import "path" node module to grant access to theextern folder
 const path = require('path');
 
-// grab the file
+// grab the file from the extern folder
 const file = path.resolve(__dirname, '../../extern/db.txt');
 
 //n-readlines instanciation
@@ -16,7 +17,7 @@ const Good = require('../goodsSchema');
 
 // the function read file
 exports.readFile = async (req, res, next) => {
-  // get each linein the file
+  // get each line from the file
   let line;
   while ((line = liner.next())) {
     // check if the file is empty, if it does stop here
@@ -53,7 +54,7 @@ exports.readFile = async (req, res, next) => {
     }
   }
 
-  // answer with a succes status ( no data sent here because makes no sense to send any )
+  // answer with a succes status ( no data sent back here because makes no sense to send any )
   res.status(201).json({
     status: 'success'
   });

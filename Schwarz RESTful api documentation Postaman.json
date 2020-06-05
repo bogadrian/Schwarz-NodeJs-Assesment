@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "9919acaf-cdaa-4cd6-8f0f-b6c8efbe3f69",
+		"name": "Schwarz",
+		"description": "Schwarz company orders shipment, hypotetical RESTful api assesment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Read file",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/read-file",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"read-file"
+					]
+				},
+				"description": "Use this end-point to read the file in the exeternal folder and write the data to MongoDB"
+			},
+			"response": []
+		},
+		{
+			"name": "GET RESULTS FILTRED BY COMPANY ",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/company?companyName=SuperTrader",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"company"
+					],
+					"query": [
+						{
+							"key": "companyName",
+							"value": "SuperTrader"
+						}
+					]
+				},
+				"description": "Use this end-point to filter the order entries by company name"
+			},
+			"response": []
+		},
+		{
+			"name": "GET ORDERS BY ADDRESS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/orders?customerAddress=Reeperbahn,153",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "customerAddress",
+							"value": "Reeperbahn,153"
+						}
+					]
+				},
+				"description": "Use this end-point to filter the order entries by delivery address"
+			},
+			"response": []
+		},
+		{
+			"name": "FIND ORDER BY ID AND DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/delete-order?orderId=001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"delete-order"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "001"
+						}
+					]
+				},
+				"description": "Use this end-point to delete an entry by its id"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/v1/sort",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/sort",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"sort"
+					]
+				},
+				"description": "Use this end-point to display orders by name and how many times their were sold"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "aec4046f-86ed-4a0e-a85b-be8c5544274a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "f10400bd-7283-46d2-9e19-b37dbbfa2ac2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
