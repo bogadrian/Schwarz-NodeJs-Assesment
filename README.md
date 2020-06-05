@@ -27,6 +27,7 @@ Using Javascript, please implement a working solution to read the data from an i
 Finally, could you answer these questions:
 
 a) Why did you pick your particular your design? What assumptions did you make, and what tradeoffs did you consider?
+
 b) What is the complexity of your operations (O- notation)?
 
 Please send us your solution together with build instructions.
