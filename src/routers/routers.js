@@ -16,4 +16,10 @@ router.route('/company').get(company.getCompany);
 // find the entries for a specific company router
 router.route('/orders').get(company.getOrdersByAddress);
 
+// find the entries for a specific company router
+router.route('/delete-order').delete(company.deleteOrder);
+
+// display how often an item has been orderd in descending order
+router.route('/sort').get(company.sortByOrder);
+
 module.exports = router;
