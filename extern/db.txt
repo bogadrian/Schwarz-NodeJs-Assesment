@@ -1,0 +1,8 @@
+001, SuperTrader, Steindamm '80', Macbook
+002, Cheapskates, Reeperbahn '153', Macbook
+003, MegaCorp, Steindamm 80, Book "Guide to Hamburg"
+004, SuperTrader, Sternstrasse 125, Book "Cooking 101"
+005, SuperTrader, Ottenser Hauptstrasse 24, Inline Skates
+006, MegaCorp, Reeperbahn 153, Playstation
+007, Cheapskates, Lagerstrasse 11, Flux compensator
+008, SuperTrader, Reeperbahn 153, Inline Skates
