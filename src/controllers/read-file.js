@@ -48,7 +48,10 @@ exports.readFile = async (req, res, next) => {
 
         // if no item is created return an error
         if (!newGood) {
-          throw new Error('No good was created');
+          return res.status(404).json({
+            status: 'fail',
+            message: 'No good was created'
+          });
         }
       }
     }

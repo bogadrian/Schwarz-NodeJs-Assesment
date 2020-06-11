@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 //END-POINTS handlers
 
 // get data from MongoDb handlers
@@ -11,7 +12,10 @@ exports.getCompany = async (req, res) => {
 
     const response = await Good.find({ companyName: objCompany });
     if (!response) {
-      throw new Error('No company with that name was found!');
+      return res.status(404).json({
+        status: 'fail',
+        message: 'No company with that name was found!'
+      });
     }
     res.status(201).json({
       status: 'success',
@@ -31,7 +35,10 @@ exports.getOrdersByAddress = async (req, res) => {
     const response = await Good.find({ customerAddress: objAddress });
 
     if (!response) {
-      throw new Error('No orders for that address were found!');
+      return res.status(404).json({
+        status: 'fail',
+        message: 'No orders for that address were found!'
+      });
     }
     res.status(201).json({
       status: 'success',
@@ -48,7 +55,10 @@ exports.deleteOrder = async (req, res) => {
     const response = await Good.findOneAndDelete(req.query);
 
     if (!response) {
-      throw new Error('No order with that orderId was found!');
+      return res.status(404).json({
+        status: 'fail',
+        message: 'No order with that orderId was found!'
+      });
     }
     res.status(201).json({
       status: 'success',
