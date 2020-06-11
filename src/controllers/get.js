@@ -22,7 +22,10 @@ exports.getCompany = async (req, res) => {
       data: response
     });
   } catch (err) {
-    console.log(err);
+    return res.status(404).json({
+      status: 'fail',
+      message: 'Servere did not responded!'
+    });
   }
 };
 
@@ -45,7 +48,10 @@ exports.getOrdersByAddress = async (req, res) => {
       data: response
     });
   } catch (err) {
-    console.log(err);
+    return res.status(404).json({
+      status: 'fail',
+      message: 'Servere did not responded!'
+    });
   }
 };
 
@@ -65,7 +71,10 @@ exports.deleteOrder = async (req, res) => {
       data: 'order deleted!'
     });
   } catch (err) {
-    console.log(err);
+    return res.status(404).json({
+      status: 'fail',
+      message: 'Servere did not responded!'
+    });
   }
 };
 // display how often an item has been orderd in descending order end-point
@@ -89,6 +98,9 @@ exports.sortByOrder = async (req, res) => {
       data: ordersFiltred
     });
   } catch (err) {
-    console.log(err);
+    return res.status(404).json({
+      status: 'fail',
+      message: 'Servere did not responded!'
+    });
   }
 };
